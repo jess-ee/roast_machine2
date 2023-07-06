@@ -118,3 +118,10 @@ if st.button('Start roasting 🍖'):
 
     except Exception as e:
         st.error(f"An error of type {type(e)._name_} occurred: {str(e)}")
+        
+st.markdown("""
+---
+Made by Jesse Kuipers (https://www.linkedin.com/in/jessekuipers/)
+
+Version: 1.0.1
+""")
