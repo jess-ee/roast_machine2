@@ -57,7 +57,7 @@ english_to_dutch_tones = {
     'Rude': 'Grove'
 }
 
-translated_tone = english_to_dutch_tones[selected_tone]
+translated_tone = english_to_dutch_tones[tone] # Use the 'tone' variable from the select box above
 
 
 #Chatmodel
