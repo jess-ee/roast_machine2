@@ -57,7 +57,6 @@ english_to_dutch_tones = {
     'Rude': 'Grove'
 }
 
-selected_tone = st.selectbox('Tone', list(english_to_dutch_tones.keys()))
 translated_tone = english_to_dutch_tones[selected_tone]
 
 
