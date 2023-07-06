@@ -16,7 +16,6 @@ from langchain.prompts.chat import (
 )
 
 from langchain.chains import LLMChain
-event = threading.Event() 
 
 apikey = os.getenv('OPENAI_API_KEY')
 
@@ -28,7 +27,7 @@ Welcome to the Roast Machine! Tell us about your friend and we'll cook up a hila
 """)
 language = st.selectbox(
     'Select the language for your roast (**Provide the input in the languange you select**):',
-    ('English','Dutch')
+    ('English','Nederlands')
 )
 name = st.text_input('*Enter the name of the person to roast* ')
 traits = st.text_input('*Enter some strange habits, quirks or personality traits about the person to roast.*')
@@ -69,7 +68,7 @@ chat_model= ChatOpenAI(temperature=0.9, model="gpt-3.5-turbo", max_tokens=1200)
 if language == 'English':
     system_message_prompt = SystemMessagePromptTemplate.from_template("Act as if you are a comedian, specialized in writing roasts. Remember a roast is a unique blend of humor with tasteful vulgarity, structured for audience comprehension striking a balance between humor and insult. Your humor is inspired by Dave Chapelle and Ricky Gervais. You are very creative, funny and do not shy away from dark humor or satire. For this roast make sure the tone is {tone}")
     human_message_prompt = HumanMessagePromptTemplate.from_template("Roast {name} and make sure to respond in {language}. This person has these interesting traits: {traits}. Do you recall the time when {funny_story}? And let's not forget about their unique appearance: {appearance}. Give us a good laugh!")
-elif language == 'Dutch':
+elif language == 'Nederlands':
     system_message_prompt = SystemMessagePromptTemplate.from_template("Doe alsof je een comedian bent, gespecialiseerd in het schrijven van roast speeches. Onthoud dat een roast een unieke mix is van humor met smaakvolle vulgariteit, gestructureerd voor begrip van het publiek die een balans vindt tussen humor en belediging. Je humor is geïnspireerd door Dave Chapelle en Ricky Gervais. Je bent erg creatief, grappig en schuwt donkere humor of satire niet. Zorg er voor dat deze roast in een {tone} toon wordt geschreven".format(tone=translated_tone))
     human_message_prompt = HumanMessagePromptTemplate.from_template("Roast {name} en zorg ervoor dat je reageert in het {language}. Die persoon heeft deze interessante eigenschappen heeft: {traits}. Herinner je je de keer dat {funny_story}? En laten we hun unieke uiterlijk niet vergeten: {appearance}. Maak ons aan het lachen!")
 
