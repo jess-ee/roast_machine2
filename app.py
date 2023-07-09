@@ -19,6 +19,10 @@ from langchain.chains import LLMChain
 
 apikey = os.getenv('OPENAI_API_KEY')
 
+# Initialize the session state if it doesn't exist yet
+if 'roast' not in st.session_state:
+    st.session_state.roast = ''
+
 #App framework
 st.title ('🔥Roast Machine 🔥')
 st.markdown("""
@@ -79,7 +83,6 @@ chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt, human_mes
 
 roast_chain = LLMChain(llm=chat_model, prompt=chat_prompt, verbose = True)
 
-# Show stuff on the screen when there is a prompt 
 if st.button('Start roasting 🍖'):
     try:
         if name and traits and funny_story and appearance and tone:
@@ -106,18 +109,24 @@ if st.button('Start roasting 🍖'):
                     time.sleep(0.01)  # Small delay to slow down the animation
                     progress_bar.progress((i + 1) % 100)
 
-            # Once the generation task is done, display the result
+            # Once the generation task is done, store the result
             progress_bar.empty()
-            st.write(response)
+            st.session_state.roast = response  # Store the roast in the session state
+
 
             share_text = f"Check out this roast: {response}"
             share_url = f"https://twitter.com/intent/tweet?text={urllib.parse.quote(share_text)}"
             st.markdown(f'[Share on Twitter]({share_url})')
 
-
     except Exception as e:
         st.error(f"An error of type {type(e)._name_} occurred: {str(e)}")
-        
+
+# Display the latest roast from the session state (if it exists)
+if st.session_state.roast:
+    st.subheader('Your latest roast')
+    st.write(st.session_state.roast)
+
+
 st.markdown("""
 ---
 Made by Jesse Kuipers (https://www.linkedin.com/in/jessekuipers/)
