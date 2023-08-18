@@ -1,5 +1,4 @@
 import os 
-from apikey import apikey
 import langchain
 import streamlit as st 
 import time
