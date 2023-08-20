@@ -164,7 +164,11 @@ def english_roast_app():
     
         except Exception as e:
             st.error(f"An error of type {type(e).__name__} occurred: {str(e)}")
-
+    st.markdown(
+    """
+    Made by [Jess-E](https://www.linkedin.com/in/jessekuipers/)
+    """
+    )  
 
 # Dutch Roast App
 def dutch_roast_app():
@@ -288,6 +292,10 @@ def dutch_roast_app():
         except Exception as e:
             st.error(f"An error of type {type(e).__name__} occurred: {str(e)}")
 
-
+    st.markdown(
+    """
+    Gemaakt door [Jess-E](https://www.linkedin.com/in/jessekuipers/)
+    """
+    ) 
 if __name__ == "__main__":
     main()
