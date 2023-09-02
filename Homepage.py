@@ -193,7 +193,7 @@ def dutch_roast_app():
 
     #Chatmodel
 
-    chat_model= ChatOpenAI(temperature=0.9, model="gpt-4", max_tokens=1200)
+    chat_model= ChatOpenAI(temperature=0.6, model="gpt-4", max_tokens=1200)
 
     #Prompt template
 
