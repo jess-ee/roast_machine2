@@ -179,13 +179,13 @@ def dutch_roast_app():
     Hoe beter de jouw antwoorden hoe beter de roasts. Probeer verschillende tonen om de perfecte roast samen te stellen. Laten we beginnen! 🍖 """)
 
     name = st.text_input('*Vul hier de naam in van de persoon die je wilt roasten* ')
-    traits = st.text_input('*Vul hier rare gewoonten, eigenaardigheden of persoonlijkheidskenmerken in van de persoon die je wilt roasten.*')
+    traits = st.text_area('*Vul hier rare gewoonten, eigenaardigheden of persoonlijkheidskenmerken in van de persoon die je wilt roasten.*')
     with st.expander("Tips"):
         st.write('Snurken ze heel luid? Nemen ze gratis spullen uit hotels? Laten ze altijd de wc-bril omhoog? Denk aan zulke dingen!')
-    funny_story = st.text_input('*Vul hier grappige of gênante herinneringen over deze persoon in.*')
+    funny_story = st.text_area('*Vul hier grappige of gênante herinneringen over deze persoon in.*')
     with st.expander("Tips"):
         st.write('Denk aan de keer dat de persoon iets heel stoms deed, zoals hun telefoon in een wc laten vallen, verdwalen in de Ikea of een deuk in de auto rijden.')
-    appearance = st.text_input('*Vul hier grappige kenmerken over hun uiterlijk in.*')
+    appearance = st.text_area('*Vul hier grappige kenmerken over hun uiterlijk in.*')
     with st.expander("Tips"):
         st.write('Zeg gewoon het voor de hand liggende over de persoon, vooral dingen die iedereen die kijkt gemakkelijk kan herkennen over je doelwit. Kunnen ze geen baard laten groeien? Hebben ze een piepstem? Stoppen ze nooit met het gebruiken van hun telefoon?')
     tone = tone = st.radio('Select the tone of the roast:', ['Hard', 'Sarcastisch', 'Vulgair','Droog','Onbeleefd'])
